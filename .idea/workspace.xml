@@ -5,11 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4dbefd71-d5d0-4d53-ba67-2070205d149c" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/school/sptech/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/school/sptech/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/school/sptech/S3Provider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/school/sptech/S3Provider.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/school/sptech/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/school/sptech/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/school/sptech/S3Provider.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/school/sptech/S3Provider.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,7 +43,7 @@
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Gusta/OneDrive/Documentos/faculdade/Segundo Semestre/Pesquisa e Inovação/conexao-banco&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Gusta/OneDrive/Documentos/faculdade/Segundo Semestre/Pesquisa e Inovação/Backend&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -93,6 +93,8 @@
       <workItem from="1728072075911" duration="23000" />
       <workItem from="1728072356320" duration="7179000" />
       <workItem from="1728080531071" duration="6484000" />
+      <workItem from="1728091335523" duration="1411000" />
+      <workItem from="1728094012090" duration="1361000" />
     </task>
     <servers />
   </component>
