@@ -1,7 +1,6 @@
 package school.sptech;
 
 import software.amazon.awssdk.auth.credentials.AwsSessionCredentials;
-import software.amazon.awssdk.awscore.exception.AwsServiceException;
 import software.amazon.awssdk.core.exception.SdkClientException;
 import software.amazon.awssdk.regions.Region;
 import software.amazon.awssdk.services.s3.S3Client;
@@ -16,7 +15,6 @@ import java.util.Objects;
 public class S3Provider {
 
     private final AwsSessionCredentials credentials;
-    private String caminhoParaInstalacao = "C:/Users/Gusta/Downloads/base-de-dados.xlsx";
 
     private final String bucketName = "discharge-bucket";
 
@@ -35,32 +33,5 @@ public class S3Provider {
                 .build();
     }
 
-    public String getCaminhoParaInstalacao() {
-        return caminhoParaInstalacao;
-    }
 
-    public S3Object buscarbaseDeDados() {
-
-        ListObjectsRequest listObjects = ListObjectsRequest.builder()
-                .bucket("discharge-bucket")
-                .build();
-        List<S3Object> objects = getS3Client().listObjects(listObjects).contents();
-
-        // Define o arquivo da base de dados como o primeiro da lista e retorna
-        return objects.getFirst();
-    }
-
-    public void instalarBaseDeDados(){
-        GetObjectRequest getObjectRequest = GetObjectRequest.builder()
-                .bucket("discharge-bucket")
-                .key(buscarbaseDeDados().key())
-                .build();
-
-        try {
-            getS3Client().getObject(getObjectRequest, Paths.get(caminhoParaInstalacao));
-        }
-        catch (SdkClientException e) {
-            throw new RuntimeException("Arquivo já instalado no diretório!");
-        }
-    }
 }
