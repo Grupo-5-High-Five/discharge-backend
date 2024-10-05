@@ -10,7 +10,11 @@ import java.util.List;
 
 public class BaseDeDados {
 
-    private final S3Provider session = new S3Provider();
+    private final S3Provider session;
+
+    public BaseDeDados() {
+        this.session = new S3Provider();
+    }
 
     private String caminhoParaInstalacao = "C:/Users/Gusta/Downloads/base-de-dados.xlsx";
 
@@ -18,10 +22,12 @@ public class BaseDeDados {
         return caminhoParaInstalacao;
     }
 
+    private final String bucketName = "discharge-bucket";
+
     public S3Object getBaseDeDados() {
 
         ListObjectsRequest listObjects = ListObjectsRequest.builder()
-                .bucket("discharge-bucket")
+                .bucket(bucketName)
                 .build();
         List<S3Object> objects = session.getS3Client().listObjects(listObjects).contents();
 
@@ -29,18 +35,13 @@ public class BaseDeDados {
         return objects.getFirst();
     }
 
-    public void instalarBaseDeDados(){
+    public void instalar(){
         GetObjectRequest getObjectRequest = GetObjectRequest.builder()
                 .bucket("discharge-bucket")
                 .key(getBaseDeDados().key())
                 .build();
 
-        try {
             session.getS3Client().getObject(getObjectRequest, Paths.get(caminhoParaInstalacao));
-        }
-        catch (SdkClientException e) {
-            throw new RuntimeException("Arquivo já instalado no diretório!");
-        }
     }
 
 

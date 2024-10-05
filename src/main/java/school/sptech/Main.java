@@ -11,9 +11,18 @@ public class Main {
         baseDeDados.getBaseDeDados();
 
         // Faz a instalação da base de dados na máquina.
-        baseDeDados.instalarBaseDeDados();
 
-        System.out.println("Arquivo instalado no caminho " + baseDeDados.getCaminhoParaInstalacao());
+        try {
+            baseDeDados.instalar();
+            System.out.println("Arquivo instalado no caminho " + baseDeDados.getCaminhoParaInstalacao());
+        }
+        catch (RuntimeException err) {
+            System.err.println("Arquivo já instalado no diretório!");
+        }
+
+
+
+        Arquivo arquivo = new Arquivo();
 
 
 

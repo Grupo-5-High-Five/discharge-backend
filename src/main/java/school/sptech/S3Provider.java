@@ -1,22 +1,12 @@
 package school.sptech;
 
 import software.amazon.awssdk.auth.credentials.AwsSessionCredentials;
-import software.amazon.awssdk.core.exception.SdkClientException;
 import software.amazon.awssdk.regions.Region;
 import software.amazon.awssdk.services.s3.S3Client;
-import software.amazon.awssdk.services.s3.model.GetObjectRequest;
-import software.amazon.awssdk.services.s3.model.ListObjectsRequest;
-import software.amazon.awssdk.services.s3.model.S3Object;
-
-import java.nio.file.Paths;
-import java.util.List;
-import java.util.Objects;
 
 public class S3Provider {
 
     private final AwsSessionCredentials credentials;
-
-    private final String bucketName = "discharge-bucket";
 
     public S3Provider() {
         this.credentials = AwsSessionCredentials.create(
