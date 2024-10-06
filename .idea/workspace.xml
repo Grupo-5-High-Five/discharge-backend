@@ -6,8 +6,11 @@
   <component name="ChangeListManager">
     <list default="true" id="4dbefd71-d5d0-4d53-ba67-2070205d149c" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/school/sptech/Arquivo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/school/sptech/Arquivo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/school/sptech/Filme.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/school/sptech/Leitura.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/school/sptech/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/school/sptech/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/school/sptech/S3Provider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/school/sptech/S3Provider.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/school/sptech/Filme.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/school/sptech/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/school/sptech/Main.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/school/sptech/S3Provider.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/school/sptech/S3Provider.class" afterDir="false" />
     </list>
@@ -94,7 +97,12 @@
       <workItem from="1728072356320" duration="7179000" />
       <workItem from="1728080531071" duration="6484000" />
       <workItem from="1728091335523" duration="1411000" />
-      <workItem from="1728094012090" duration="1361000" />
+      <workItem from="1728094012090" duration="7449000" />
+      <workItem from="1728132870238" duration="1023000" />
+      <workItem from="1728136963832" duration="1824000" />
+      <workItem from="1728139208328" duration="5535000" />
+      <workItem from="1728151124874" duration="1212000" />
+      <workItem from="1728225429216" duration="1086000" />
     </task>
     <servers />
   </component>
@@ -106,7 +114,19 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="main" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
           </value>
         </entry>
       </map>
