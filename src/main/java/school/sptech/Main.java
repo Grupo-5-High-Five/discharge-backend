@@ -28,13 +28,6 @@ public class Main {
         Arquivo arquivo = new Arquivo();
 
 
-        //Tenta carregar o arquivo, o que o carrega e trata o arquivo
-        try {
-            arquivo.carregarArquivo();
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-
 
 
     }

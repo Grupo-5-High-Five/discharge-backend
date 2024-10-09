@@ -10,6 +10,8 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Arquivo {
 
@@ -42,42 +44,73 @@ public class Arquivo {
 
     public void formataArquivo(Sheet tabela) {
 
+        List<Leitura> leituras = new ArrayList<>();
+
         //Instânciando uma conexão com o banco de dados
         DBConnectionProvider database = new DBConnectionProvider();
 
         // Criação dos formatadores de data, tanto pra excel, quanto para o banco de dados
-        DataFormatter dataFormatter = new DataFormatter();
-        DateTimeFormatter excelFormatter = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm"); // Formato da data no Excel
-        DateTimeFormatter dbFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"); // Formato de data para o banco de dados
+
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm"); // esse formatador pega nossa string da primeira coluna que é a data e transforma em um objeto da classe LocalDateTime
+
+        DateTimeFormatter jFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+
+        for (int i = 1; i <= tabela.getLastRowNum(); i++) {
+            //Formatando a coluna de data
+            Row linha = tabela.getRow(i);
+
+            Cell colunaData = linha.getCell(0);
+
+            LocalDateTime dataJ = LocalDateTime.parse(colunaData.toString(), formatter);
+            String data = dataJ.format(jFormatter);
+
+            //Formatando a coluna de consumo
+
+            Cell colunaConsmo = linha.getCell(1);
+            Double consumo = colunaConsmo.getNumericCellValue();
 
 
+            //Formatando a coluna de potencia reativa atrasada
 
+            Cell colunaPotenciaReativaAtrasada = linha.getCell(2);
+            Double potenciaReativaAtrasada = colunaPotenciaReativaAtrasada.getNumericCellValue();
 
-        for (Row linha : tabela) { // pegando linha da tabela
+            //Formatando a coluna de potencia reativa adiantada
+            Cell colunaPoteniaReativaAdiantada = linha.getCell(3);
+            Double potenciaReativaAdiantada = colunaPoteniaReativaAdiantada.getNumericCellValue();
 
-            Cell primeiraColuna = linha.getCell(0); // aqui pegamos a primeira coluna (data), de todas as linhas da tabela
+            // Formatando a coluna de co2
 
-            if (primeiraColuna != null) {
-                String valorColuna = dataFormatter.formatCellValue(primeiraColuna); // Formatar o valor da coluna como string
+            Cell colunaCo2 = linha.getCell(4);
+            Double emissao = colunaCo2.getNumericCellValue();
 
-                //esse Bloco tenta tratar a data e inserí-la no banco
-                try {
-                    // Tenta converter o valor da coluna para LocalDateTime, assumindo que seja uma data no formato dd/MM/yyyy HH:mm
-                    LocalDateTime data = LocalDateTime.parse(valorColuna, excelFormatter);
+            // Formatando a coluna fatorPotenciaAtrasado
+            Cell colunaFatorPotenciaReativaAtrasada = linha.getCell(5);
+            Double fatorPotenciaReativaAtrasada = colunaFatorPotenciaReativaAtrasada.getNumericCellValue();
 
-                    // Convertendo a data para o formato do banco de dados
-                    String dataFormatada = data.format(dbFormatter);
+            //Formatando a coluna fatorPotenciaReativaAdiantado
+            Cell colunaFatorPotenciaReativaAdiantada = linha.getCell(6);
+            Double fatorPotenciaReativaAdiantada = colunaFatorPotenciaReativaAdiantada.getNumericCellValue();
 
-                    // Inserir no banco de dados
-//                    String sql = "INSERT INTO leituras (data_coluna) VALUES (?)"; A conexão com o banco não está completa
-//                    database.getConnection().update(sql, dataFormatada);
+            //Formatando a coluna diaSemana
+            Cell colunaStatusSemana = linha.getCell(8);
+            String statusSemana = colunaStatusSemana.getStringCellValue();
 
-                    //Caso não consiga, aqui a exeção é tratada e o erro é exibido
-                } catch (Exception e) {
-                    System.out.println("Erro ao converter a célula em LocalDateTime: " + e.getMessage());
-                }
-            }
+            //Formatando a coluna
+            Cell colunaDiaDaSemana = linha.getCell(9);
+            String diaDaSemana = colunaDiaDaSemana.getStringCellValue();
+
+            System.out.println(diaDaSemana);
+
+            Leitura leitura = new Leitura(data, consumo, potenciaReativaAtrasada,
+                    potenciaReativaAdiantada, emissao,
+                    fatorPotenciaReativaAtrasada, fatorPotenciaReativaAdiantada,
+                    statusSemana, diaDaSemana);
+
+            leituras.add(leitura);
+            System.out.println(leitura);
         }
+
     }
 
 }

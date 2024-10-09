@@ -5,14 +5,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4dbefd71-d5d0-4d53-ba67-2070205d149c" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/school/sptech/Arquivo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/school/sptech/Arquivo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/school/sptech/Filme.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/school/sptech/Leitura.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/school/sptech/BaseDeDados.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/school/sptech/BaseDeDados.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/school/sptech/Leitura.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/school/sptech/Leitura.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/school/sptech/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/school/sptech/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/school/sptech/Filme.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/school/sptech/Arquivo.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/school/sptech/Arquivo.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/school/sptech/BaseDeDados.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/school/sptech/BaseDeDados.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/school/sptech/Leitura.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/school/sptech/Leitura.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/school/sptech/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/school/sptech/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/school/sptech/S3Provider.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/school/sptech/S3Provider.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,6 +31,21 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;GustavoLuzz&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/Grupo-5-High-Five/Backend.git&quot;,
+    &quot;accountId&quot;: &quot;3d797293-b2a3-43fe-a684-48829f13711c&quot;
+  }
+}</component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 0
@@ -103,6 +121,9 @@
       <workItem from="1728139208328" duration="5535000" />
       <workItem from="1728151124874" duration="1212000" />
       <workItem from="1728225429216" duration="1086000" />
+      <workItem from="1728490076918" duration="826000" />
+      <workItem from="1728490934741" duration="6382000" />
+      <workItem from="1728507017834" duration="4371000" />
     </task>
     <servers />
   </component>

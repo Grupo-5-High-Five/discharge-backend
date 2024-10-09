@@ -47,26 +47,33 @@
             <version>12.8.1.jre11</version>
         </dependency>
 
-        <!-- Depencências do Bucket S3 na AWS -->
+        <!-- Dependência do Bucket S3 na AWS -->
         <dependency>
             <groupId>software.amazon.awssdk</groupId>
             <artifactId>s3</artifactId>
             <version>2.27.21</version>
         </dependency>
 
-        <!--   Dependências do APACHE POI     -->
+        <!-- Dependência do AWS SDK Core -->
+        <dependency>
+            <groupId>software.amazon.awssdk</groupId>
+            <artifactId>core</artifactId>
+            <version>2.27.21</version> <!-- Certifique-se de usar a mesma versão -->
+        </dependency>
 
-            <dependency>
-                <groupId>org.apache.poi</groupId>
-                <artifactId>poi</artifactId>
-                <version>5.3.0</version>
-            </dependency>
-            <dependency>
-                <groupId>org.apache.poi</groupId>
-                <artifactId>poi-ooxml</artifactId>
-                <version>5.3.0</version>
-            </dependency>
-        <!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
+        <!-- Dependências do APACHE POI -->
+        <dependency>
+            <groupId>org.apache.poi</groupId>
+            <artifactId>poi</artifactId>
+            <version>5.3.0</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.poi</groupId>
+            <artifactId>poi-ooxml</artifactId>
+            <version>5.3.0</version>
+        </dependency>
+
+        <!-- Conector MySQL -->
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
@@ -74,8 +81,5 @@
         </dependency>
 
     </dependencies>
-
-
-
 
 </project>

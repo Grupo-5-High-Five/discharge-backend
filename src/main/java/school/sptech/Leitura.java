@@ -1,41 +1,39 @@
 package school.sptech;
 
-import java.time.LocalDateTime;
-
 public class Leitura {
 
-    private LocalDateTime data;
+    private String data;
     private Double consumo;
     private Double potenciaReativaAtrasada;
     private Double PotenciaReativaAdiantada;
     private Double emissao;
     private Double fatorPotenciaAtrasado;
     private Double fatorPotenciaAdiantado;
-    private String diaSemana;
     private String statusSeamana;
+    private String diaSemana;
 
     public Leitura() {
     }
 
-    public Leitura(Integer id, LocalDateTime data, Double consumo, Double potenciaReativaAtrasada,
+    public Leitura(String data, Double consumo, Double potenciaReativaAtrasada,
                    Double potenciaReativaAdiantada, Double emissao, Double fatorPotenciaAtrasado,
-                   Double fatorPotenciaAdiantado, String diaSemana
-    ) {
+                   Double fatorPotenciaAdiantado, String statusSeamana, String diaSemana) {
         this.data = data;
         this.consumo = consumo;
         this.potenciaReativaAtrasada = potenciaReativaAtrasada;
-        this.PotenciaReativaAdiantada = potenciaReativaAdiantada;
+        PotenciaReativaAdiantada = potenciaReativaAdiantada;
         this.emissao = emissao;
         this.fatorPotenciaAtrasado = fatorPotenciaAtrasado;
         this.fatorPotenciaAdiantado = fatorPotenciaAdiantado;
+        this.statusSeamana = statusSeamana;
         this.diaSemana = diaSemana;
     }
 
-    public LocalDateTime getData() {
+    public String getData() {
         return data;
     }
 
-    public void setData(LocalDateTime data) {
+    public void setData(String data) {
         this.data = data;
     }
 
@@ -101,6 +99,21 @@ public class Leitura {
 
     public void setStatusSeamana(String statusSeamana) {
         this.statusSeamana = statusSeamana;
+    }
+
+    @Override
+    public String toString() {
+        return "Leitura{" +
+                "data='" + data + '\'' +
+                ", consumo=" + consumo +
+                ", potenciaReativaAtrasada=" + potenciaReativaAtrasada +
+                ", PotenciaReativaAdiantada=" + PotenciaReativaAdiantada +
+                ", emissao=" + emissao +
+                ", fatorPotenciaAtrasado=" + fatorPotenciaAtrasado +
+                ", fatorPotenciaAdiantado=" + fatorPotenciaAdiantado +
+                ", diaSemana='" + diaSemana + '\'' +
+                ", statusSeamana='" + statusSeamana + '\'' +
+                '}';
     }
 }
 
