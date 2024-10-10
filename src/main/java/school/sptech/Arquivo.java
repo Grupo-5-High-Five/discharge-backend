@@ -3,11 +3,13 @@ package school.sptech;
 
 import org.apache.poi.ss.usermodel.*;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+import org.springframework.jdbc.core.JdbcTemplate;
 
 import java.io.IOException;
 import java.io.InputStream;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.sql.SQLException;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
@@ -18,6 +20,8 @@ public class Arquivo {
     private final BaseDeDados baseDeDados = new BaseDeDados();
 
     private final Path caminho = Path.of("C:\\Users\\Gusta\\Downloads\\base-de-dados.xlsx");
+
+    private List<Leitura> leituras = new ArrayList<>();
 
     public Arquivo() {
         try {
@@ -43,11 +47,6 @@ public class Arquivo {
     }
 
     public void formataArquivo(Sheet tabela) {
-
-        List<Leitura> leituras = new ArrayList<>();
-
-        //Instânciando uma conexão com o banco de dados
-        DBConnectionProvider database = new DBConnectionProvider();
 
         // Criação dos formatadores de data, tanto pra excel, quanto para o banco de dados
 
@@ -100,17 +99,74 @@ public class Arquivo {
             Cell colunaDiaDaSemana = linha.getCell(9);
             String diaDaSemana = colunaDiaDaSemana.getStringCellValue();
 
-            System.out.println(diaDaSemana);
-
+            //A cada vez que os dados de uma linha é formatado, é instanciada uma nova leitura com todos atributos necessários
             Leitura leitura = new Leitura(data, consumo, potenciaReativaAtrasada,
                     potenciaReativaAdiantada, emissao,
                     fatorPotenciaReativaAtrasada, fatorPotenciaReativaAdiantada,
                     statusSemana, diaDaSemana);
 
+            //E a cada leitura criada, é adicionado a lista de leituras
             leituras.add(leitura);
-            System.out.println(leitura);
         }
 
+    }
+
+
+
+    public void inserirLeiturasNoBanco(){
+
+        DBConnectionProvider dbConnectionProvider = new DBConnectionProvider();
+
+        JdbcTemplate con = dbConnectionProvider.getConnection();
+
+        String insert = """
+                     
+                INSERT INTO Leitura (
+                     data, consumo, potenciaReativaAtrasada, potenciaReativaAdiantada,
+                     emissao, fatorPotenciaAtrasado, fatorPotenciaAdiantado,statusSemana, diaSemana)
+                                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?);
+                     """;
+
+        String checarExistencia = "SELECT COUNT(*) FROM Leitura WHERE data = ?;";
+
+        int inseridos = 0;
+
+        for (Leitura leitura : leituras) {
+
+            if(inseridos == 96){
+                break;
+            }
+
+             String data = leitura.getData();
+             Double consumo = leitura.getConsumo();
+             Double potenciaReativaAtrasada = leitura.getPotenciaReativaAtrasada();
+             Double potenciaReativaAdiantada = leitura.getPotenciaReativaAdiantada();
+             Double emissao = leitura.getEmissao();
+             Double fatorPotenciaAtrasado = leitura.getFatorPotenciaAtrasado();
+             Double fatorPotenciaAdiantado = leitura.getFatorPotenciaAdiantado();
+             String statusSeamana = leitura.getStatusSeamana();
+             String diaSemana = leitura.getDiaSemana();
+
+             Integer existe = con.queryForObject(checarExistencia, Integer.class, data);
+
+             if(existe != null || existe != 0){
+
+                 try {
+                     con.update(
+                             insert, data, consumo, potenciaReativaAtrasada,
+                             potenciaReativaAdiantada, emissao, fatorPotenciaAtrasado,
+                             fatorPotenciaAdiantado, statusSeamana, diaSemana
+                     );
+                     inseridos++;
+                 }
+                 catch (RuntimeException e) {
+                     throw new RuntimeException(e);
+                 }
+             }
+             
+
+
+        }
     }
 
 }

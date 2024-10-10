@@ -1,5 +1,7 @@
 package school.sptech;
 
+import org.springframework.jdbc.core.JdbcTemplate;
+
 import java.io.IOException;
 
 public class Main {
@@ -24,11 +26,16 @@ public class Main {
             System.err.println("Base de dados já instalada no diretório!");
         }
 
-        //Instância um novo arquivo (Base de dados em formato de tabela, pronta para tratamento e inserção)
+        //Instância um novo arquivo (Base de dados em formato de tabela, tratada, pronta para inserção no banco)
         Arquivo arquivo = new Arquivo();
 
-
-
+        //Inserindo o total de 96 leituras, um
+        try {
+            arquivo.inserirLeiturasNoBanco();
+            System.out.println("Dia de leituras inserido no banco com sucesso!");
+        } catch (RuntimeException err) {
+            System.err.println(err.getMessage());
+        }
 
     }
 }

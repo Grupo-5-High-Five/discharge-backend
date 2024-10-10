@@ -9,7 +9,7 @@ public class Leitura {
     private Double emissao;
     private Double fatorPotenciaAtrasado;
     private Double fatorPotenciaAdiantado;
-    private String statusSeamana;
+    private String statusSemana;
     private String diaSemana;
 
     public Leitura() {
@@ -17,7 +17,7 @@ public class Leitura {
 
     public Leitura(String data, Double consumo, Double potenciaReativaAtrasada,
                    Double potenciaReativaAdiantada, Double emissao, Double fatorPotenciaAtrasado,
-                   Double fatorPotenciaAdiantado, String statusSeamana, String diaSemana) {
+                   Double fatorPotenciaAdiantado, String statusSemana, String diaSemana) {
         this.data = data;
         this.consumo = consumo;
         this.potenciaReativaAtrasada = potenciaReativaAtrasada;
@@ -25,7 +25,7 @@ public class Leitura {
         this.emissao = emissao;
         this.fatorPotenciaAtrasado = fatorPotenciaAtrasado;
         this.fatorPotenciaAdiantado = fatorPotenciaAdiantado;
-        this.statusSeamana = statusSeamana;
+        this.statusSemana = statusSemana;
         this.diaSemana = diaSemana;
     }
 
@@ -94,11 +94,11 @@ public class Leitura {
     }
 
     public String getStatusSeamana() {
-        return statusSeamana;
+        return statusSemana;
     }
 
     public void setStatusSeamana(String statusSeamana) {
-        this.statusSeamana = statusSeamana;
+        this.statusSemana = statusSeamana;
     }
 
     @Override
@@ -112,7 +112,7 @@ public class Leitura {
                 ", fatorPotenciaAtrasado=" + fatorPotenciaAtrasado +
                 ", fatorPotenciaAdiantado=" + fatorPotenciaAdiantado +
                 ", diaSemana='" + diaSemana + '\'' +
-                ", statusSeamana='" + statusSeamana + '\'' +
+                ", statusSeamana='" + statusSemana + '\'' +
                 '}';
     }
 }

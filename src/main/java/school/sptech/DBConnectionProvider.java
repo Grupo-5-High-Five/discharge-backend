@@ -11,9 +11,9 @@ public class DBConnectionProvider {
 
     public DBConnectionProvider() {
         BasicDataSource basicDataSource = new BasicDataSource();
-        basicDataSource.setUrl("jdbc:h2:mem:filmes");
-        basicDataSource.setUsername("sa");
-        basicDataSource.setPassword("");
+        basicDataSource.setUrl("jdbc:mysql://44.210.136.7/discharge");
+        basicDataSource.setUsername("root");
+        basicDataSource.setPassword("123");
 
         this.dataSource = basicDataSource;
     }
