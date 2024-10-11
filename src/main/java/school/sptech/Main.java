@@ -23,7 +23,7 @@ public class Main {
         }
         // caso não consiga, a base já está instalada na máquina
         catch (RuntimeException err) {
-            System.err.println("Base de dados já instalada no diretório: " + baseDeDados.getCaminhoParaInstalacao());
+            System.err.println("Base de dados já instalada no diretório: " + baseDeDados.getCaminhoParaInstalacao() + "\n");
         }
 
         //Instância um novo arquivo (Base de dados em formato de tabela, tratada, pronta para inserção no banco)

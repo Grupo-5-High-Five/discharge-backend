@@ -9,7 +9,6 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.sql.SQLException;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
@@ -143,7 +142,7 @@ public class Arquivo {
 
                 Integer existe = con.queryForObject(checarExistencia, Integer.class, leitura.getData());
 
-                if(existe != null || existe != 0){
+                if(existe < 1){
                     con.update(
                             insert, leitura.getData(), leitura.getConsumo(), leitura.getPotenciaReativaAtrasada(),
                             leitura.getPotenciaReativaAdiantada(), leitura.getEmissao(), leitura.getFatorPotenciaAtrasado(),
@@ -155,7 +154,7 @@ public class Arquivo {
                         System.out.println("Conexão realizada com sucesso!\n");
                     }
 
-                    System.out.println((inseridos) + "°" + " Leitura inserida no banco de dados com sucesso sucesso!");
+                    System.out.println("Leitura de: " + leitura.getData() + " Inserida no banco de dados com sucesso\n");
                 }
 
 

@@ -5,14 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4dbefd71-d5d0-4d53-ba67-2070205d149c" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/school/sptech/Arquivo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/school/sptech/Arquivo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/school/sptech/DBConnectionProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/school/sptech/DBConnectionProvider.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/school/sptech/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/school/sptech/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/school/sptech/Arquivo.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/school/sptech/Arquivo.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/school/sptech/DBConnectionProvider.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/school/sptech/DBConnectionProvider.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/school/sptech/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/school/sptech/Main.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -121,7 +116,7 @@
       <workItem from="1728490076918" duration="826000" />
       <workItem from="1728490934741" duration="6382000" />
       <workItem from="1728507017834" duration="4371000" />
-      <workItem from="1728663825034" duration="1356000" />
+      <workItem from="1728663825034" duration="2360000" />
     </task>
     <servers />
   </component>
