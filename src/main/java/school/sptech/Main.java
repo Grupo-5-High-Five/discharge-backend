@@ -23,7 +23,7 @@ public class Main {
         }
         // caso não consiga, a base já está instalada na máquina
         catch (RuntimeException err) {
-            System.err.println("Base de dados já instalada no diretório!");
+            System.err.println("Base de dados já instalada no diretório: " + baseDeDados.getCaminhoParaInstalacao());
         }
 
         //Instância um novo arquivo (Base de dados em formato de tabela, tratada, pronta para inserção no banco)
@@ -32,7 +32,7 @@ public class Main {
         //Inserindo o total de 96 leituras, um
         try {
             arquivo.inserirLeiturasNoBanco();
-            System.out.println("Dia de leituras inserido no banco com sucesso!");
+            System.out.println("\nDia de leituras inserido no banco de dados com sucesso!");
         } catch (RuntimeException err) {
             System.err.println(err.getMessage());
         }

@@ -109,17 +109,21 @@ public class Arquivo {
             leituras.add(leitura);
         }
 
+        System.out.println("Foi encontrado um arquivo com: " + leituras.size() + " leituras.\n");
+
     }
 
 
 
     public void inserirLeiturasNoBanco(){
 
-        DBConnectionProvider dbConnectionProvider = new DBConnectionProvider();
+        try{
+            System.out.println("Iniciando conexão com o banco de dados...");
+            DBConnectionProvider dbConnectionProvider = new DBConnectionProvider();
 
-        JdbcTemplate con = dbConnectionProvider.getConnection();
+            JdbcTemplate con = dbConnectionProvider.getConnection();
 
-        String insert = """
+            String insert = """
                      
                 INSERT INTO Leitura (
                      data, consumo, potenciaReativaAtrasada, potenciaReativaAdiantada,
@@ -127,46 +131,40 @@ public class Arquivo {
                                 VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?);
                      """;
 
-        String checarExistencia = "SELECT COUNT(*) FROM Leitura WHERE data = ?;";
+            String checarExistencia = "SELECT COUNT(*) FROM Leitura WHERE data = ?;";
 
-        int inseridos = 0;
+            int inseridos = 0;
 
-        for (Leitura leitura : leituras) {
+            for (Leitura leitura : leituras) {
 
-            if(inseridos == 96){
-                break;
+                if(inseridos == 96){
+                    break;
+                }
+
+                Integer existe = con.queryForObject(checarExistencia, Integer.class, leitura.getData());
+
+                if(existe != null || existe != 0){
+                    con.update(
+                            insert, leitura.getData(), leitura.getConsumo(), leitura.getPotenciaReativaAtrasada(),
+                            leitura.getPotenciaReativaAdiantada(), leitura.getEmissao(), leitura.getFatorPotenciaAtrasado(),
+                            leitura.getFatorPotenciaAdiantado(), leitura.getStatusSeamana(), leitura.getDiaSemana()
+                    );
+                    inseridos++;
+
+                    if(inseridos == 1){
+                        System.out.println("Conexão realizada com sucesso!\n");
+                    }
+
+                    System.out.println((inseridos) + "°" + " Leitura inserida no banco de dados com sucesso sucesso!");
+                }
+
+
             }
-
-             String data = leitura.getData();
-             Double consumo = leitura.getConsumo();
-             Double potenciaReativaAtrasada = leitura.getPotenciaReativaAtrasada();
-             Double potenciaReativaAdiantada = leitura.getPotenciaReativaAdiantada();
-             Double emissao = leitura.getEmissao();
-             Double fatorPotenciaAtrasado = leitura.getFatorPotenciaAtrasado();
-             Double fatorPotenciaAdiantado = leitura.getFatorPotenciaAdiantado();
-             String statusSeamana = leitura.getStatusSeamana();
-             String diaSemana = leitura.getDiaSemana();
-
-             Integer existe = con.queryForObject(checarExistencia, Integer.class, data);
-
-             if(existe != null || existe != 0){
-
-                 try {
-                     con.update(
-                             insert, data, consumo, potenciaReativaAtrasada,
-                             potenciaReativaAdiantada, emissao, fatorPotenciaAtrasado,
-                             fatorPotenciaAdiantado, statusSeamana, diaSemana
-                     );
-                     inseridos++;
-                 }
-                 catch (RuntimeException e) {
-                     throw new RuntimeException(e);
-                 }
-             }
-             
-
-
+        } catch (RuntimeException e) {
+            throw new RuntimeException(e.getMessage() + "| Não foi possível realizar a conexão com o banco de dados!");
         }
+
+
     }
 
 }
