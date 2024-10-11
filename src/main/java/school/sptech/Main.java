@@ -14,22 +14,10 @@ public class Main {
         // Busca a base de dados dentro do bucket.
         baseDeDados.getBaseDeDados();
 
-
-        // Tenta instalar a base de dados
-        System.out.println("Instalando base de dados...");
-        try {
-            baseDeDados.instalar();
-            System.out.println("Arquivo instalado no caminho " + baseDeDados.getCaminhoParaInstalacao());
-        }
-        // caso não consiga, a base já está instalada na máquina
-        catch (RuntimeException err) {
-            System.err.println("Base de dados já instalada no diretório: " + baseDeDados.getCaminhoParaInstalacao() + "\n");
-        }
-
         //Instância um novo arquivo (Base de dados em formato de tabela, tratada, pronta para inserção no banco)
         Arquivo arquivo = new Arquivo();
 
-        //Inserindo o total de 96 leituras, um
+        //Inserindo o total de 96 leituras, um dia fiscal
         try {
             arquivo.inserirLeiturasNoBanco();
             System.out.println("\nDia de leituras inserido no banco de dados com sucesso!");

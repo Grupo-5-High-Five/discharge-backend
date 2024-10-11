@@ -1,9 +1,11 @@
 package school.sptech;
 
+import software.amazon.awssdk.core.ResponseInputStream;
 import software.amazon.awssdk.services.s3.model.GetObjectRequest;
 import software.amazon.awssdk.services.s3.model.ListObjectsRequest;
 import software.amazon.awssdk.services.s3.model.S3Object;
 
+import java.io.InputStream;
 import java.nio.file.Paths;
 import java.util.List;
 
@@ -30,17 +32,21 @@ public class BaseDeDados {
                 .build();
         List<S3Object> objects = session.getS3Client().listObjects(listObjects).contents();
 
-        // Define o arquivo da base de dados como o primeiro da lista e retorna
         return objects.getFirst();
     }
 
-    public void instalar(){
+
+    public InputStream getInputStream() {
+        S3Object baseDeDados = getBaseDeDados();
+
         GetObjectRequest getObjectRequest = GetObjectRequest.builder()
-                .bucket("discharge-bucket")
-                .key(getBaseDeDados().key())
+                .bucket(bucketName)
+                .key(baseDeDados.key())
                 .build();
 
-            session.getS3Client().getObject(getObjectRequest, Paths.get(caminhoParaInstalacao));
+        ResponseInputStream<?> inputStream = session.getS3Client().getObject(getObjectRequest);
+
+        return inputStream; //
     }
 
 

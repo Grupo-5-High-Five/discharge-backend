@@ -7,8 +7,6 @@ import org.springframework.jdbc.core.JdbcTemplate;
 
 import java.io.IOException;
 import java.io.InputStream;
-import java.nio.file.Files;
-import java.nio.file.Path;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
@@ -16,9 +14,6 @@ import java.util.List;
 
 public class Arquivo {
 
-    private final BaseDeDados baseDeDados = new BaseDeDados();
-
-    private final Path caminho = Path.of("C:\\Users\\Gusta\\Downloads\\base-de-dados.xlsx");
 
     private List<Leitura> leituras = new ArrayList<>();
 
@@ -33,7 +28,9 @@ public class Arquivo {
 
     public void carregarArquivo() throws IOException {
 
-        InputStream arquivo = Files.newInputStream(caminho);
+        BaseDeDados baseDeDados = new BaseDeDados();
+
+        InputStream arquivo = baseDeDados.getInputStream();
         Workbook workbook = new XSSFWorkbook(arquivo);
 
         Sheet tabela = workbook.getSheetAt(0);
