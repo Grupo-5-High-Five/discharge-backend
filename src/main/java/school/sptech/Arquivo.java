@@ -4,13 +4,14 @@ package school.sptech;
 import org.apache.poi.ss.usermodel.*;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.springframework.jdbc.core.JdbcTemplate;
-
 import java.io.IOException;
 import java.io.InputStream;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 public class Arquivo {
 
@@ -20,8 +21,7 @@ public class Arquivo {
     public Arquivo() {
         try {
             carregarArquivo();
-        }
-        catch (IOException e) {
+        } catch (IOException e) {
             throw new RuntimeException(e);
         }
     }
@@ -37,9 +37,6 @@ public class Arquivo {
 
 
         formataArquivo(tabela);
-
-
-
     }
 
     public void formataArquivo(Sheet tabela) {
@@ -110,60 +107,53 @@ public class Arquivo {
     }
 
 
+    public void inserirLeiturasNoBanco() {
+        System.out.println("Iniciando conexão com o banco de dados...");
+        DBConnectionProvider dbConnectionProvider = new DBConnectionProvider();
+        JdbcTemplate con = dbConnectionProvider.getConnection();
 
-    public void inserirLeiturasNoBanco(){
-
-        try{
-            System.out.println("Iniciando conexão com o banco de dados...");
-            DBConnectionProvider dbConnectionProvider = new DBConnectionProvider();
-
-            JdbcTemplate con = dbConnectionProvider.getConnection();
-
-            String insert = """
-                     
+        String insert = """
+        
                 INSERT INTO Leitura (
-                     data, consumo, potenciaReativaAtrasada, potenciaReativaAdiantada,
-                     emissao, fatorPotenciaAtrasado, fatorPotenciaAdiantado,statusSemana, diaSemana)
-                                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?);
-                     """;
+            data, consumo, potenciaReativaAtrasada, potenciaReativaAdiantada,
+            emissao, fatorPotenciaAtrasado, fatorPotenciaAdiantado, statusSemana, diaSemana)
+        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?);
+        """;
 
-            String checarExistencia = "SELECT COUNT(*) FROM Leitura WHERE data = ?;";
+        try {
+            // Buscar todas as datas existentes no banco de dados antes do loop
+            String buscarDatasExistentes = "SELECT data FROM Leitura";
+            List<String> datasExistentes = con.queryForList(buscarDatasExistentes, String.class);
+            Set<String> datasExistentesSet = new HashSet<>(datasExistentes);
 
             int inseridos = 0;
 
             for (Leitura leitura : leituras) {
-
-                if(inseridos == 96){
+                if (inseridos == 96) {
                     break;
                 }
 
-                Integer existe = con.queryForObject(checarExistencia, Integer.class, leitura.getData());
-
-                if(existe < 1){
+                // Verificar se a data já existe no conjunto de datas
+                if (!datasExistentesSet.contains(leitura.getData())) {
+                    // Inserir no banco de dados
                     con.update(
                             insert, leitura.getData(), leitura.getConsumo(), leitura.getPotenciaReativaAtrasada(),
                             leitura.getPotenciaReativaAdiantada(), leitura.getEmissao(), leitura.getFatorPotenciaAtrasado(),
                             leitura.getFatorPotenciaAdiantado(), leitura.getStatusSeamana(), leitura.getDiaSemana()
                     );
+
                     inseridos++;
 
-                    if(inseridos == 1){
+                    if (inseridos == 1) {
                         System.out.println("Conexão realizada com sucesso!\n");
                     }
 
-                    System.out.println("Leitura de: " + leitura.getData() + " Inserida no banco de dados com sucesso\n");
+                    System.out.println("Leitura de: " + leitura.getData() + " inserida no banco de dados com sucesso\n");
                 }
-
-
             }
         } catch (RuntimeException e) {
-            throw new RuntimeException(e.getMessage() + "| Não foi possível realizar a conexão com o banco de dados!");
+            throw new RuntimeException(e.getMessage() + " | Não foi possível realizar a conexão com o banco de dados!");
         }
-
-
     }
 
 }
-
-
-

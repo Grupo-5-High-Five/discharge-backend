@@ -17,12 +17,6 @@ public class BaseDeDados {
         this.session = new S3Provider();
     }
 
-    private String caminhoParaInstalacao = "C:/Users/Gusta/Downloads/base-de-dados.xlsx";
-
-    public String getCaminhoParaInstalacao() {
-        return caminhoParaInstalacao;
-    }
-
     private final String bucketName = "discharge-bucket";
 
     public S3Object getBaseDeDados() {

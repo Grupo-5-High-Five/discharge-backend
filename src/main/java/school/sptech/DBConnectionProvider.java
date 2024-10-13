@@ -11,7 +11,7 @@ public class DBConnectionProvider {
 
     public DBConnectionProvider() {
         BasicDataSource basicDataSource = new BasicDataSource();
-        basicDataSource.setUrl("jdbc:mysql://3.87.194.213/discharge");
+        basicDataSource.setUrl("jdbc:mysql://54.210.194.62/discharge");
         basicDataSource.setUsername("root");
         basicDataSource.setPassword("123");
 
