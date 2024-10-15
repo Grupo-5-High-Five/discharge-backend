@@ -10,7 +10,7 @@ public class Main {
         PropertyConfigurator.configure(log4jConfPath);
 
         //Instancia uma nova base de dados armazenada em um bucket S3
-        System.out.println("Iniciando conexão com a AWS...\n" + "");
+        System.out.println("Iniciando conexão com a AWS...\n");
         BaseDeDados baseDeDados = new BaseDeDados();
 
         // Busca a base de dados dentro do bucket.
