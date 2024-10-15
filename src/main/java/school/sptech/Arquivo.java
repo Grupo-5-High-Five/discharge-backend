@@ -1,6 +1,4 @@
 package school.sptech;
-
-
 import org.apache.poi.ss.usermodel.*;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -108,13 +106,14 @@ public class Arquivo {
 
 
     public void inserirLeiturasNoBanco() {
+
         System.out.println("Iniciando conexão com o banco de dados...");
         DBConnectionProvider dbConnectionProvider = new DBConnectionProvider();
         JdbcTemplate con = dbConnectionProvider.getConnection();
 
         String insert = """
         
-                INSERT INTO Leitura (
+                INSERT INTO leitura (
             data, consumo, potenciaReativaAtrasada, potenciaReativaAdiantada,
             emissao, fatorPotenciaAtrasado, fatorPotenciaAdiantado, statusSemana, diaSemana)
         VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?);
@@ -122,7 +121,7 @@ public class Arquivo {
 
         try {
             // Buscar todas as datas existentes no banco de dados antes do loop
-            String buscarDatasExistentes = "SELECT data FROM Leitura";
+            String buscarDatasExistentes = "SELECT data FROM leitura";
             List<String> datasExistentes = con.queryForList(buscarDatasExistentes, String.class);
             Set<String> datasExistentesSet = new HashSet<>(datasExistentes);
 
@@ -152,7 +151,7 @@ public class Arquivo {
                 }
             }
         } catch (RuntimeException e) {
-            throw new RuntimeException(e.getMessage() + " | Não foi possível realizar a conexão com o banco de dados!");
+            throw new RuntimeException(e.getMessage() + "Não foi possível realizar a conexão com o banco de dados!");
         }
     }
 
