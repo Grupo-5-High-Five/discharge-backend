@@ -20,6 +20,7 @@ public class DBConnectionProvider {
         basicDataSource.setUrl(dbUrl); //"jdbc:mysql://IPV4 publico/discharge"
         basicDataSource.setUsername(dbUser);
         basicDataSource.setPassword(dbPassword);
+        basicDataSource.setDriverClassName("com.mysql.cj.jdbc.Driver");
 
         this.dataSource = basicDataSource;
     }
