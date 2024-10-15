@@ -129,7 +129,7 @@ public class Arquivo {
             int inseridos = 0;
 
             for (Leitura leitura : leituras) {
-                if (inseridos == 96) {
+                if (inseridos == 480) {
                     break;
                 }
 
