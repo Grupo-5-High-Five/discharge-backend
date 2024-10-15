@@ -6,7 +6,6 @@ import software.amazon.awssdk.services.s3.model.ListObjectsRequest;
 import software.amazon.awssdk.services.s3.model.S3Object;
 
 import java.io.InputStream;
-import java.nio.file.Paths;
 import java.util.List;
 
 public class BaseDeDados {
