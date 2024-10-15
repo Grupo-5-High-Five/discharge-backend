@@ -10,10 +10,16 @@ public class DBConnectionProvider {
     private final DataSource dataSource;
 
     public DBConnectionProvider() {
+
+
+        String dbUrl = System.getenv("DB_URL");
+        String dbUser = System.getenv("DB_USER");
+        String dbPassword = System.getenv("DB_PASSWORD");
+
         BasicDataSource basicDataSource = new BasicDataSource();
-        basicDataSource.setUrl("jdbc:mysql://54.210.194.62/discharge");
-        basicDataSource.setUsername("root");
-        basicDataSource.setPassword("123");
+        basicDataSource.setUrl(dbUrl); //"jdbc:mysql://IPV4 publico/discharge"
+        basicDataSource.setUsername(dbUser);
+        basicDataSource.setPassword(dbPassword);
 
         this.dataSource = basicDataSource;
     }
