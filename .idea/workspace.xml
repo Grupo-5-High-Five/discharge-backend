@@ -4,10 +4,21 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4dbefd71-d5d0-4d53-ba67-2070205d149c" name="Changes" comment="">
+    <list default="true" id="4dbefd71-d5d0-4d53-ba67-2070205d149c" name="Changes" comment="Adicionando JAR">
+      <change afterPath="$PROJECT_DIR$/target/maven-archiver/pom.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/school/sptech/Arquivo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/school/sptech/Arquivo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/school/sptech/BaseDeDados.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/school/sptech/BaseDeDados.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/school/sptech/DBConnectionProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/school/sptech/DBConnectionProvider.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/school/sptech/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/school/sptech/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/school/sptech/Arquivo.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/school/sptech/Arquivo.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/school/sptech/BaseDeDados.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/school/sptech/BaseDeDados.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/school/sptech/DBConnectionProvider.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/school/sptech/DBConnectionProvider.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/school/sptech/Leitura.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/school/sptech/Leitura.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/school/sptech/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/school/sptech/Main.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,7 +44,7 @@
   <component name="GithubPullRequestsUISettings">{
   &quot;selectedUrlAndAccountId&quot;: {
     &quot;url&quot;: &quot;https://github.com/Grupo-5-High-Five/Backend.git&quot;,
-    &quot;accountId&quot;: &quot;3d797293-b2a3-43fe-a684-48829f13711c&quot;
+    &quot;accountId&quot;: &quot;cb643515-77a4-4a36-ab07-796494b7b49f&quot;
   }
 }</component>
   <component name="ProblemsViewState">
@@ -53,6 +64,7 @@
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
     &quot;Application.Main.executor&quot;: &quot;Run&quot;,
+    &quot;Maven.conexao-banco-de-dados [install].executor&quot;: &quot;Run&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
@@ -62,10 +74,15 @@
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settingsdialog.IDE.editor.colors.Debugger&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;project.propVCSSupport.Mappings&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Gusta\OneDrive\Documentos\faculdade\Segundo Semestre\Pesquisa e Inovação\Backend\target" />
+    </key>
+  </component>
   <component name="RunManager">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="school.sptech.Main" />
@@ -117,7 +134,25 @@
       <workItem from="1728490934741" duration="6382000" />
       <workItem from="1728507017834" duration="4371000" />
       <workItem from="1728663825034" duration="2360000" />
+      <workItem from="1728685226359" duration="107000" />
+      <workItem from="1728685346233" duration="6000" />
+      <workItem from="1728685366613" duration="637000" />
+      <workItem from="1728795438735" duration="11000" />
+      <workItem from="1728827719897" duration="5497000" />
+      <workItem from="1728911003947" duration="23000" />
+      <workItem from="1728956318357" duration="6102000" />
+      <workItem from="1728998762609" duration="622000" />
+      <workItem from="1728999396826" duration="52000" />
     </task>
+    <task id="LOCAL-00001" summary="Adicionando JAR">
+      <option name="closed" value="true" />
+      <created>1728959467988</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1728959467988</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -145,6 +180,10 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Adicionando JAR" />
+    <option name="LAST_COMMIT_MESSAGE" value="Adicionando JAR" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
