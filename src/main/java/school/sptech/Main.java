@@ -20,7 +20,7 @@ public class Main {
         //Instância um novo arquivo (Base de dados em formato de tabela, tratada, pronta para inserção no banco)
         Arquivo arquivo = new Arquivo();
 
-        //Inserindo o total de 96 leituras, um dia fiscal
+        //Inserindo o total de 480 leituras, 5 dias fiscais
         arquivo.inserirLeiturasNoBanco();
         System.out.println("Dia de leituras inserido no banco de dados com sucesso!");
     }
