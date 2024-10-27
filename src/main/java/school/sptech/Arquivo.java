@@ -100,7 +100,7 @@ public class Arquivo {
             leituras.add(leitura);
         }
 
-        System.out.println("Foi encontrado um arquivo com: " + leituras.size() + " leituras.\n");
+        System.out.println("Foi encontrado um arquivo com: " + leituras.size()   + " leituras.\n");
 
     }
 
@@ -113,10 +113,11 @@ public class Arquivo {
 
         String insert = """
         
-                INSERT INTO leitura (
-            data, consumo, potenciaReativaAtrasada, potenciaReativaAdiantada,
-            emissao, fatorPotenciaAtrasado, fatorPotenciaAdiantado, statusSemana, diaSemana)
-        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?);
+               INSERT INTO leitura (
+                   data, consumo, potenciaReativaAtrasada, potenciaReativaAdiantada,
+                   emissao, fatorPotenciaAtrasado, fatorPotenciaAdiantado, statusSemana, diaSemana, fkEmpresa)
+               VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?);
+               
         """;
 
         try {
@@ -138,7 +139,7 @@ public class Arquivo {
                     con.update(
                             insert, leitura.getData(), leitura.getConsumo(), leitura.getPotenciaReativaAtrasada(),
                             leitura.getPotenciaReativaAdiantada(), leitura.getEmissao(), leitura.getFatorPotenciaAtrasado(),
-                            leitura.getFatorPotenciaAdiantado(), leitura.getStatusSeamana(), leitura.getDiaSemana()
+                            leitura.getFatorPotenciaAdiantado(), leitura.getStatusSeamana(), leitura.getDiaSemana(), 1
                     );
 
                     inseridos++;
@@ -151,7 +152,7 @@ public class Arquivo {
                 }
             }
         } catch (RuntimeException e) {
-            throw new RuntimeException(e.getMessage() + "Não foi possível realizar a conexão com o banco de dados!");
+            throw new RuntimeException(e.getMessage() + " Não foi possível realizar a conexão com o banco de dados!");
         }
     }
 
