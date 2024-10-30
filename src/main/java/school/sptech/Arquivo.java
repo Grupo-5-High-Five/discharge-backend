@@ -114,7 +114,7 @@ public class Arquivo {
         String insert = """
         
                INSERT INTO leitura (
-                   data, consumo, potenciaReativaAtrasada, potenciaReativaAdiantada,
+                   dtLeitura, consumo, potenciaReativaAtrasada, potenciaReativaAdiantada,
                    emissao, fatorPotenciaAtrasado, fatorPotenciaAdiantado, statusSemana, diaSemana, fkEmpresa)
                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?);
                
@@ -122,7 +122,7 @@ public class Arquivo {
 
         try {
             // Buscar todas as datas existentes no banco de dados antes do loop
-            String buscarDatasExistentes = "SELECT data FROM leitura";
+            String buscarDatasExistentes = "SELECT dtLeitura FROM leitura";
             List<String> datasExistentes = con.queryForList(buscarDatasExistentes, String.class);
             Set<String> datasExistentesSet = new HashSet<>(datasExistentes);
 
