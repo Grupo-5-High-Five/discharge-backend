@@ -5,20 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4dbefd71-d5d0-4d53-ba67-2070205d149c" name="Changes" comment="Adicionando JAR">
-      <change afterPath="$PROJECT_DIR$/target/maven-archiver/pom.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/school/sptech/Arquivo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/school/sptech/Arquivo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/school/sptech/BaseDeDados.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/school/sptech/BaseDeDados.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/school/sptech/DBConnectionProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/school/sptech/DBConnectionProvider.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/school/sptech/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/school/sptech/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/school/sptech/Mensagem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/school/sptech/Mensagem.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/school/sptech/Arquivo.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/school/sptech/Arquivo.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/school/sptech/BaseDeDados.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/school/sptech/BaseDeDados.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/school/sptech/DBConnectionProvider.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/school/sptech/DBConnectionProvider.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/school/sptech/Leitura.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/school/sptech/Leitura.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/school/sptech/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/school/sptech/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/school/sptech/Mensagem.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/school/sptech/Mensagem.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -66,7 +61,7 @@
     &quot;Application.Main.executor&quot;: &quot;Run&quot;,
     &quot;Maven.conexao-banco-de-dados [install].executor&quot;: &quot;Run&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;slack&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
     &quot;last_opened_file_path&quot;: &quot;C:/Users/Gusta/OneDrive/Documentos/faculdade/Segundo Semestre/Pesquisa e Inovação/Backend&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
@@ -85,8 +80,10 @@
   </component>
   <component name="RunManager">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="ALTERNATIVE_JRE_PATH" value="corretto-21" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
       <option name="MAIN_CLASS_NAME" value="school.sptech.Main" />
-      <module name="conexao-banco-de-dados" />
+      <module name="discharge" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="school.sptech.*" />
@@ -102,14 +99,6 @@
         <item itemvalue="Application.Main" />
       </list>
     </recent_temporary>
-  </component>
-  <component name="SharedIndexes">
-    <attachedChunks>
-      <set>
-        <option value="bundled-jdk-9823dce3aa75-28b599e66164-intellij.indexing.shared.core-IU-242.23339.11" />
-        <option value="bundled-js-predefined-d6986cc7102b-5c90d61e3bab-JavaScript-IU-242.23339.11" />
-      </set>
-    </attachedChunks>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
