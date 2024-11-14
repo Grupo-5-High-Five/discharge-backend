@@ -11,10 +11,9 @@ public class DBConnectionProvider {
 
     public DBConnectionProvider() {
 
-
-        String dbUrl = "jdbc:mysql://54.173.93.245/discharge";
-        String dbUser = "root";
-        String dbPassword = "123";
+        String dbUrl = System.getenv("DB_URL");
+        String dbUser = System.getenv("DB_USER");
+        String dbPassword = System.getenv("DB_PASSWORD");
 
         BasicDataSource basicDataSource = new BasicDataSource();
         basicDataSource.setUrl(dbUrl); //"jdbc:mysql://IPV4 publico/discharge"

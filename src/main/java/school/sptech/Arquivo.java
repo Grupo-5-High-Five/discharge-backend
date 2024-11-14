@@ -13,7 +13,6 @@ import java.util.Set;
 
 public class Arquivo {
 
-
     private List<Leitura> leituras = new ArrayList<>();
 
     public Arquivo() {
@@ -32,7 +31,6 @@ public class Arquivo {
         Workbook workbook = new XSSFWorkbook(arquivo);
 
         Sheet tabela = workbook.getSheetAt(0);
-
 
         formataArquivo(tabela);
     }
@@ -58,7 +56,6 @@ public class Arquivo {
 
             Cell colunaConsmo = linha.getCell(1);
             Double consumo = colunaConsmo.getNumericCellValue();
-
 
             //Formatando a coluna de potencia reativa atrasada
 
@@ -101,9 +98,7 @@ public class Arquivo {
         }
 
         System.out.println("Foi encontrado um arquivo com: " + leituras.size()   + " leituras.\n");
-
     }
-
 
     public void inserirLeiturasNoBanco() {
 
