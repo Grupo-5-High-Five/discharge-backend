@@ -12,6 +12,11 @@ public class Leitura {
     private String statusSemana;
     private String diaSemana;
 
+
+    public Leitura() {
+
+    }
+
     public Leitura(String data, Double consumo, Double potenciaReativaAtrasada,
                    Double potenciaReativaAdiantada, Double emissao, Double fatorPotenciaAtrasado,
                    Double fatorPotenciaAdiantado, String statusSemana, String diaSemana) {
