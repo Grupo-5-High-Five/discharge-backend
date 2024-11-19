@@ -88,17 +88,27 @@ public class Arquivo {
             String diaDaSemana = colunaDiaDaSemana.getStringCellValue();
 
             //A cada vez que os dados de uma linha é formatado, é instanciada uma nova leitura com todos atributos necessários
-            Leitura leitura = new Leitura(data, consumo, potenciaReativaAtrasada,
-                    potenciaReativaAdiantada, emissao,
-                    fatorPotenciaReativaAtrasada, fatorPotenciaReativaAdiantada,
-                    statusSemana, diaDaSemana);
 
-            //E a cada leitura criada, é adicionado a lista de leituras
-            leituras.add(leitura);
+            if(consumo > LeituraExcedente.LIMITE_CONSUMO || emissao > LeituraExcedente.LIMITE_EMISSAO) {
+                leituras.add(new LeituraExcedente(data, consumo, potenciaReativaAtrasada,
+                        potenciaReativaAdiantada, emissao,
+                        fatorPotenciaReativaAtrasada, fatorPotenciaReativaAdiantada,
+                        statusSemana, diaDaSemana));
+            } else {
+                leituras.add(new Leitura(data, consumo, potenciaReativaAtrasada,
+                        potenciaReativaAdiantada, emissao,
+                        fatorPotenciaReativaAtrasada, fatorPotenciaReativaAdiantada,
+                        statusSemana, diaDaSemana));
+            }
+
         }
+
 
         System.out.println("Foi encontrado um arquivo com: " + leituras.size()   + " leituras.\n");
     }
+
+
+
 
     public void inserirLeiturasNoBanco() {
 
@@ -116,21 +126,26 @@ public class Arquivo {
         """;
 
         try {
-            // Buscar todas as datas existentes no banco de dados antes do loop
             String buscarDatasExistentes = "SELECT dt FROM leitura";
             List<String> datasExistentes = con.queryForList(buscarDatasExistentes, String.class);
             Set<String> datasExistentesSet = new HashSet<>(datasExistentes);
 
+            int qtdExcedentes = 0;
             int inseridos = 0;
+            String mensagem = "";
 
             for (Leitura leitura : leituras) {
-                if (inseridos == 480) {
+
+                if (inseridos == 96) {
                     break;
                 }
 
-                // Verificar se a data já existe no conjunto de datas
+                if(leitura instanceof LeituraExcedente) {
+                    qtdExcedentes ++;
+                }
+
+
                 if (!datasExistentesSet.contains(leitura.getData())) {
-                    // Inserir no banco de dados
                     con.update(
                             insert, leitura.getData(), leitura.getConsumo(), leitura.getPotenciaReativaAtrasada(),
                             leitura.getPotenciaReativaAdiantada(), leitura.getEmissao(), leitura.getFatorPotenciaAtrasado(),
@@ -146,6 +161,15 @@ public class Arquivo {
                     System.out.println("Leitura de: " + leitura.getData() + " inserida no banco de dados com sucesso\n");
                 }
             }
+
+            mensagem = "Foram identificadas " + qtdExcedentes + " leituras nesse dia.\n";
+
+            try{
+                Mensagem.enviarMensagem(mensagem);
+            } catch (Exception e) {
+                System.out.println(e.getMessage());
+            }
+
         } catch (RuntimeException e) {
             throw new RuntimeException(e.getMessage() + " Não foi possível realizar a conexão com o banco de dados!");
         }
