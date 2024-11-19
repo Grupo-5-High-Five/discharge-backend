@@ -15,7 +15,7 @@ import java.util.Set;
 
 public class Mensagem {
 
-    public void enviarMensagem() throws SlackApiException, IOException {
+    public static void enviarMensagem(String mensagem) throws SlackApiException, IOException {
 
         Slack slack = Slack.getInstance();
 
@@ -25,7 +25,7 @@ public class Mensagem {
 
         ChatPostMessageRequest request = ChatPostMessageRequest.builder()
                 .channel("C080F659GG0")
-                .text("👋 Olá, Equipe Discharge! :)")
+                .text(mensagem)
                 .build();
 
 
@@ -38,7 +38,7 @@ public class Mensagem {
         }
     }
 
-    public void salvarMensagemNoBanco(String mensagem){
+    public static void salvarMensagemNoBanco(String mensagem){
 
         DBConnectionProvider dbConnectionProvider = new DBConnectionProvider();
         JdbcTemplate con = dbConnectionProvider.getConnection();
