@@ -14,6 +14,8 @@ import java.util.Set;
 public class Arquivo {
 
     private List<Leitura> leituras = new ArrayList<>();
+    private final BaseDeDados baseDeDados = new BaseDeDados();
+    private final DBConnectionProvider dbConnectionProvider = new DBConnectionProvider();
 
     public Arquivo() {
         try {
@@ -24,9 +26,6 @@ public class Arquivo {
     }
 
     public void carregarArquivo() throws IOException {
-
-        BaseDeDados baseDeDados = new BaseDeDados();
-
         InputStream arquivo = baseDeDados.getInputStream();
         Workbook workbook = new XSSFWorkbook(arquivo);
 
@@ -113,7 +112,6 @@ public class Arquivo {
     public void inserirLeiturasNoBanco() {
 
         System.out.println("Iniciando conexão com o banco de dados...");
-        DBConnectionProvider dbConnectionProvider = new DBConnectionProvider();
         JdbcTemplate con = dbConnectionProvider.getConnection();
 
         String insert = """
