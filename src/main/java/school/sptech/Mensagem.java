@@ -15,11 +15,10 @@ import java.util.Set;
 
 public class Mensagem {
 
+    private static final Slack slack = Slack.getInstance();
+    private static final String token = System.getenv("TOKEN");
+
     public static void enviarMensagem(String mensagem) throws SlackApiException, IOException {
-
-        Slack slack = Slack.getInstance();
-
-        String token = System.getenv("TOKEN");
 
         MethodsClient methods = slack.methods(token);
 
