@@ -160,12 +160,16 @@ public class Arquivo {
                 }
             }
 
-            mensagem = "Foram identificadas " + qtdExcedentes + " leituras nesse dia.\n";
+            DateTimeFormatter dt = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+
+            mensagem += "Foram inseridas " + inseridos + " com sucesso no dia " + LocalDateTime.now().format(dt) + "\n";
+            mensagem += " E Foram identificadas " + qtdExcedentes + " leituras nesse dia.\n";
 
             try{
                 Mensagem.enviarMensagem(mensagem);
+                Mensagem.salvarMensagemNoBanco(mensagem);
             } catch (Exception e) {
-                System.out.println(e.getMessage());
+                System.out.println(e.getMessage() + " Erro ao enviar notificação!");
             }
 
         } catch (RuntimeException e) {
