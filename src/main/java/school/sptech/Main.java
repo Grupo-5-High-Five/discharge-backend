@@ -28,12 +28,5 @@ public class Main {
         System.out.println("Dia de leituras inserido no banco de dados com sucesso!");
 
 
-        try {
-            // Chama o método para enviar a mensagem e salvar no banco
-            Mensagem.enviarMensagem("");
-            Mensagem.salvarMensagemNoBanco("");
-        } catch (SlackApiException | IOException e) {
-            System.err.println("Erro ao enviar a mensagem para o Slack: " + e.getMessage());
-        }
     }
 }
