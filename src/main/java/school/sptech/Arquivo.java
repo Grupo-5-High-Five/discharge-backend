@@ -163,7 +163,7 @@ public class Arquivo {
             DateTimeFormatter dt = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 
             mensagem += "Foram inseridas " + inseridos + " com sucesso no dia " + LocalDateTime.now().format(dt) + "\n";
-            mensagem += " E Foram identificadas " + qtdExcedentes + " leituras nesse dia.\n";
+            mensagem += "E Foram identificadas " + qtdExcedentes + " leituras excendentes nesse dia.\n";
 
             try{
                 Mensagem.enviarMensagem(mensagem);
