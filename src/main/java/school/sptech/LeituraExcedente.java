@@ -4,7 +4,7 @@ public class LeituraExcedente extends Leitura {
 
 
     static final Double LIMITE_CONSUMO = 100.00;
-    static final Double LIMITE_EMISSAO = 1.00;
+    static final Double LIMITE_EMISSAO = 0.04;
 
 
     public LeituraExcedente(
