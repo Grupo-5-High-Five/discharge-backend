@@ -48,7 +48,7 @@ public class Arquivo {
 
             Cell colunaData = linha.getCell(0);
 
-            LocalDateTime dataJ = LocalDateTime.parse(colunaData.toString(), formatter);
+            LocalDateTime dataJ = LocalDateTime.parse(colunaData.toString().trim(), formatter);
             String data = dataJ.format(jFormatter);
 
             //Formatando a coluna de consumo
@@ -134,7 +134,7 @@ public class Arquivo {
 
             for (Leitura leitura : leituras) {
 
-                if (inseridos == 96) {
+                if (inseridos == 48) {
                     break;
                 }
 
